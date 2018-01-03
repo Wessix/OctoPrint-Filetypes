@@ -15,7 +15,7 @@ class FiletypesPlugin(octoprint.plugin.StartupPlugin,
 		]
 
 	def on_after_startup(self):
-		self._logger.info("Filetypes. (settings: stl=%s, gcode=%s, gco=%s, g=%s)" % (self._settings.get(["stl"]), self._settings.get(["gcode"]), self._settings.get(["gco"]), self._settings.get(["g"])))
+		self._logger.info("Filetypes. (settings: stl=%s, gcode=%s, gco=%s, g=%s, hextemp=%s)" % (self._settings.get(["stl"]), self._settings.get(["gcode"]), self._settings.get(["gco"]), self._settings.get(["g"]), self._settings.get(["hextemp"])))
 
 	##~~ SettingsPlugin mixin
 	def get_settings_defaults(self):
@@ -27,7 +27,8 @@ class FiletypesPlugin(octoprint.plugin.StartupPlugin,
 			stl=True,
 			gcode=True,
 			gco=True,
-			g=True
+			g=True,
+			hextemp=True
 		)
 
 	def get_template_vars(self):
@@ -35,7 +36,8 @@ class FiletypesPlugin(octoprint.plugin.StartupPlugin,
 			stl=self._settings.get(["stl"]),
 			gcode=self._settings.get(["gcode"]),
 			gco=self._settings.get(["gco"]),
-			g=self._settings.get(["g"])
+			g=self._settings.get(["g"]),
+			hextemp=self._settings.get(["hextemp"])
 		)
 
 	##~~ AssetPlugin mixin
@@ -58,7 +60,7 @@ class FiletypesPlugin(octoprint.plugin.StartupPlugin,
 
 				# version check: github repository
 				type="github_release",
-				user="TheLongRunSmoke",
+				user="TheLongRunSmoke modified by Wessix",
 				repo="OctoPrint-Filetypes",
 				current=self._plugin_version,
 
