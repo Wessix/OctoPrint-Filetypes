@@ -13,7 +13,8 @@ $(function() {
 	        stl : ko.observable(),
 	        gcode : ko.observable(),
 	        gco : ko.observable(),
-	        g : ko.observable()
+	        g : ko.observable(),
+            hextemp : ko.observable()
 	    };
 
 	    self.updateTypes = function(){
